@@ -1,0 +1,264 @@
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#0b0f1a;
+    --card:#131a2a;
+    --accent:#00c2ff;
+    --text:#ffffff;
+    --muted:#9ca3af;
+    --radius:18px;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ===== LOADER ===== */
+#loader{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.spinner{
+    width:55px;
+    height:55px;
+    border:4px solid rgba(255,255,255,.2);
+    border-top-color:var(--accent);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:240px;
+    height:100vh;
+    background:#111827;
+    padding:20px;
+    overflow:auto;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo h2{
+    color:var(--accent);
+}
+
+.nav-btn{
+    width:100%;
+    padding:14px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:12px;
+    background:#1f2937;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+    background:var(--accent);
+    color:#000;
+}
+
+/* ===== MAIN ===== */
+.main-content{
+    margin-left:240px;
+    padding:15px;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.search-box{
+    flex:1;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#1f2937;
+    color:#fff;
+}
+
+.clock{
+    min-width:90px;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* ===== BANNER ===== */
+.hero-banner{
+    width:100%;
+    margin-bottom:15px;
+}
+
+.hero-banner img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+/* ===== PLAYER ===== */
+.player-section{
+    background:var(--card);
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+#player{
+    width:100%;
+    aspect-ratio:16/9;
+}
+
+.channel-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+}
+
+.channel-info img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:12px;
+}
+
+.channel-info p{
+    color:var(--muted);
+}
+
+/* ===== CHANNEL GRID ===== */
+.section-title{
+    margin-bottom:15px;
+}
+
+.channel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:15px;
+}
+
+.channel-card{
+    background:var(--card);
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.channel-card:hover{
+    transform:translateY(-4px);
+}
+
+.channel-card img{
+    width:100%;
+    height:110px;
+    object-fit:contain;
+    background:#fff;
+    padding:10px;
+}
+
+.channel-card h4{
+    padding:10px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* TV Focus */
+.channel-card:focus{
+    outline:3px solid var(--accent);
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav{
+    display:none;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main-content{
+        margin-left:0;
+        padding-bottom:80px;
+    }
+
+    .hero-banner img{
+        height:150px;
+    }
+
+    .channel-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .mobile-nav{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        background:#111827;
+        display:flex;
+        justify-content:space-around;
+        padding:10px;
+        z-index:999;
+    }
+
+    .mobile-nav button{
+        border:none;
+        background:none;
+        color:#fff;
+        font-size:14px;
+    }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{
+    width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--accent);
+    border-radius:10px;
+}
